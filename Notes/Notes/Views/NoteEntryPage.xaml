@@ -23,14 +23,14 @@
         <Grid ColumnDefinitions="*,*">
             <!-- Layout children in two columns -->
             <Button Text="Enregistrer"
-                    Clicked="OnSaveButtonClicked" 
+                    Clicked="OnSaveButtonClicked"
                     IsVisible="{Binding isActive}"/>
             <Button Grid.Column="1"
                     Text="Supprimer"
                     Clicked="OnDesactiveButtonClicked"
                     IsVisible="{Binding isActive}"/>
             <Button Text="Restaurer"
-                    Clicked="OnActiveButtonClicked"
+                    Clicked="OnActiveButtonClicked" 
                     IsVisible="{Binding isInactive}"/>
             <Button Grid.Column="1"
                     Text="Supprimer"

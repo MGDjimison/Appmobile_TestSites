@@ -26,7 +26,7 @@
     <!-- Add an item to the toolbar -->
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Ajouter"
-                     Clicked="OnAddClicked" />
+                     Clicked="OnAddClicked"/>
     </ContentPage.ToolbarItems>
 
     <!-- Display notes in a list -->
