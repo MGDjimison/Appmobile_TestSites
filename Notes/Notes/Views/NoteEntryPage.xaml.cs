@@ -25,8 +25,9 @@ namespace Notes.Views
             InitializeComponent();
 
             // Set the BindingContext of the page to a new Note.
-            BindingContext = new Note();
-
+            var note = new Note();
+            note.isActive = true;
+            BindingContext = note;
         }
 
         async void LoadNote(string itemId)
@@ -48,7 +49,7 @@ namespace Notes.Views
         {
             var note = (Note)BindingContext;
             note.Date = DateTime.UtcNow;
-            note.isActive = true;
+            //note.isActive = true;
             if (!string.IsNullOrWhiteSpace(note.Text))
             {
                 await App.Database.SaveNoteAsync(note);
@@ -72,6 +73,7 @@ namespace Notes.Views
             await App.Database.TestSiteAsync(note.url);
 
         }
+        
         async void OnActiveButtonClicked(object sender, EventArgs e)
         {
             var note = (Note)BindingContext;
@@ -90,5 +92,6 @@ namespace Notes.Views
             // Navigate backwards
             await Shell.Current.GoToAsync("..");
         }
+        
     }
 }

@@ -21,7 +21,7 @@ namespace Notes.Data
         public Task<List<Note>> GetNotesAsync()
         {
             //Get all notes.
-            return database.Table<Note>().ToListAsync(); //recupere tous les notes puis les met en liste 
+            return database.Table<Note>().ToListAsync();
         }
 
         public Task<Note> GetNoteAsync(int id)
@@ -31,12 +31,14 @@ namespace Notes.Data
                             .Where(i => i.ID == id)
                             .FirstOrDefaultAsync();
         }
+        
         public Task<List<Note>> GetNotesDeletedAsync(bool active)
         {
             // recupere les notes inactives
             return database.Table<Note>()
                 .Where(note => note.isActive == active).ToListAsync();
         }
+        
 
         public Task<int> SaveNoteAsync(Note note)
         {
@@ -51,6 +53,7 @@ namespace Notes.Data
                 return database.InsertAsync(note);
             }
         }
+        
 
         public Task<int> DesactiveNote(Note note)
         {
@@ -73,6 +76,7 @@ namespace Notes.Data
             }
             return database.UpdateAsync(note);
         }
+        
 
         public Task<int> DeleteNoteAsync(Note note)
         {
