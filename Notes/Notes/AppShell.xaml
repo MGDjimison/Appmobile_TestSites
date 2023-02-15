@@ -27,7 +27,7 @@
                       Icon="icon_feed.png"
                       ContentTemplate="{DataTemplate views:NotesPage}" />
         <ShellContent Title="Corbeille"
-                      Icon="icon_feed.png"
+                      Icon="corbeille.png"
                       ContentTemplate="{DataTemplate views:InactiveNotePage}" />
         <ShellContent Title="A propos"
                       Icon="icon_about.png"

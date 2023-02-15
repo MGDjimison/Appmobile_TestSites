@@ -21,6 +21,7 @@
 
   <ItemGroup>
     <Compile Remove="Models\BooleanConverter.cs" />
+    <Compile Remove="Models\Ping.cs" />
   </ItemGroup>
 
   <ItemGroup>

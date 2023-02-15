@@ -4,6 +4,9 @@ using SQLite;
 using Notes.Models;
 using System;
 using System.Net.Http;
+using System.Net.NetworkInformation;
+using System.Diagnostics;
+using System.Net;
 
 namespace Notes.Data
 {
@@ -39,7 +42,6 @@ namespace Notes.Data
                 .Where(note => note.isActive == active).ToListAsync();
         }
         
-
         public Task<int> SaveNoteAsync(Note note)
         {
             if (note.ID != 0)
@@ -54,7 +56,6 @@ namespace Notes.Data
             }
         }
         
-
         public Task<int> DesactiveNote(Note note)
         {
             
@@ -75,8 +76,7 @@ namespace Notes.Data
                 note.isActive = true;
             }
             return database.UpdateAsync(note);
-        }
-        
+        }   
 
         public Task<int> DeleteNoteAsync(Note note)
         {
@@ -102,5 +102,31 @@ namespace Notes.Data
             }
             return false;
         }
+
+        public bool Ping(string ip)
+        {
+            System.Diagnostics.Debug.WriteLine("DEMARRAGE DE LA FONCTION PING");
+            try
+            {
+                bool res = false;
+                // classe ping native qui permet d'envoyer un ping
+                Ping ping = new Ping();
+                // classe native qui renvoie le statut du ping
+                PingReply reply = ping.Send(ip, 5000);
+
+                if (reply.Status == IPStatus.Success)
+                {
+                    res = true;
+                }
+
+                return res;
+            }
+            catch (PingException ex)
+            {
+                System.Diagnostics.Debug.WriteLine("LOG Exception " + ex.Message);
+            }
+            return false;
+        }
+
     }
 }

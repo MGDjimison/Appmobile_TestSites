@@ -15,10 +15,6 @@ namespace Notes.Models
         public string Filename { get; internal set; }
         public string color { get; set; }
         public bool isActive { get; set; }
-        public bool getIsActive(bool isActive)
-        {
-            return (!(bool)isActive);
-        }
         public bool isInactive { get { return (!(bool)isActive); } }
     }
 }

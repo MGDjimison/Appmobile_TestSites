@@ -143,5 +143,8 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\motocon.png" />
   </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\corbeille.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

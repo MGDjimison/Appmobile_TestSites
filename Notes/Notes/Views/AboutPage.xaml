@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Notes.Views.AboutPage"
-             Title="About">
+             Title="A propos">
     <!-- Layout children in two rows -->
     <Grid RowDefinitions="Auto,*">
         <Image Source="xamarin_logo.png"
@@ -29,6 +29,11 @@
             <Label Text="Cette application a été crée en Xamarin" />
             <Button Text="En savoir plus"
                     Clicked="OnButtonClicked" />
+            <Entry Placeholder="adresse IP"
+                    x:Name="adresse"></Entry>
+            <Button Grid.Column="1"
+                    Text="PING"
+                    Clicked="OnPingButtonClicked" />
         </StackLayout>
     </Grid>
 </ContentPage>
